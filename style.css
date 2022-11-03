@@ -24,31 +24,38 @@ header {
   display: flex;
   justify-content: center;
   width: clamp(1rem, 100vw, 89rem);
-  margin-top: 2.5rem;
-  margin-bottom: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 #header-title {
-
+  font-family: 'Dejavu Sans', sans-serif;
+  background: -webkit-linear-gradient(0deg, #ff6363 0%, #57c4ff 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(0.1rem, 12vw, 5rem);
 }
 
 #button-panel {
+  position: absolute;
   display: flex;
-  width: clamp(1rem, 100vw, 60rem);
-  justify-content: space-evenly; 
+  width: clamp(1rem, 70vw, 70rem);
+  justify-content: flex-end; 
   align-items: center;
-  margin-top: 0.5rem;
-  margin-bottom: 2rem;
+  top: 8rem;
 }
 
 button {
-  width: 7rem;
-  height: 2.3rem;
-  margin-left: 1rem;
-  margin-right: 1rem;
-  background-color: #4f5560;
+  width: 3.5rem;
+  height: 3.5rem;
+  background-color: #cc7473;
+  color: #24272c;
   border: none;
-  border-radius: 1rem;
+  border-radius: 50%;
+  font-family: 'Dejavu Sans', sans-serif;
+  font-size: clamp(0.1rem, 9vw, 2.5rem);
+  padding-bottom: 0.4rem;
 }
 
 #book-shelf {
