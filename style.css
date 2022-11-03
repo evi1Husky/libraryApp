@@ -1,1 +1,92 @@
+*,
+*::before,
+*::after {margin: 0; padding: 0; box-sizing: inherit;}
 
+html {
+  font-size: 62.5%;
+  background: #24272c;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  width: clamp(1rem, 100vw, 89rem);
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  width: clamp(1rem, 100vw, 89rem);
+  margin-top: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+#header-title {
+
+}
+
+#button-panel {
+  display: flex;
+  width: clamp(1rem, 100vw, 60rem);
+  justify-content: space-evenly; 
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+button {
+  width: 7rem;
+  height: 2.3rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  background-color: #4f5560;
+  border: none;
+  border-radius: 1rem;
+}
+
+#book-shelf {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center; 
+  align-items: flex-start;
+}
+
+.book {
+  margin: 1rem;
+  border: #4f5560 solid 1px;
+  border-radius: 1rem;
+  width: 20rem;
+  height: 27rem;
+}
+
+@media (max-width:600px) {
+  body {
+    width: 100vw;
+  }
+  .book {
+    width: 10rem;
+    height: 13rem;
+  }
+}
+
+@media (max-width:370px) {
+  .book {
+    width: 9rem;
+    height: 12rem;
+  }
+}
+
+@media (max-width:325px) {
+  .book {
+    width: 8rem;
+    height: 11rem;
+  }
+}
