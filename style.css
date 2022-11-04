@@ -2,15 +2,22 @@
 *::before,
 *::after {margin: 0; padding: 0; box-sizing: inherit;}
 
+:root {
+  --backgroundColor: #2a2e35;
+  --buttonPanelColor: #e07777;
+  --headerColor: -webkit-linear-gradient(0deg, #ff6363 0%, #57c4ff 100%);
+}
+
 html {
   font-size: 62.5%;
-  background: #24272c;
+  background: var(--backgroundColor);
   display: flex;
   justify-content: center;
 }
 
 body {
   box-sizing: border-box;
+  font-family: 'Dejavu Sans', sans-serif;
   font-size: 1.6rem;
   display: flex;
   flex-direction: column;
@@ -29,8 +36,7 @@ header {
 }
 
 #header-title {
-  font-family: 'Dejavu Sans', sans-serif;
-  background: -webkit-linear-gradient(0deg, #ff6363 0%, #57c4ff 100%);
+  background: var(--headerColor);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -46,16 +52,36 @@ header {
   top: 8rem;
 }
 
-button {
+#add-button {
   width: 3.5rem;
   height: 3.5rem;
-  background-color: #cc7473;
+  font-family: 'Dejavu Sans', sans-serif;
+  background-color: var(--buttonPanelColor);
   color: #24272c;
   border: none;
   border-radius: 50%;
-  font-family: 'Dejavu Sans', sans-serif;
   font-size: clamp(0.1rem, 9vw, 2.5rem);
   padding-bottom: 0.4rem;
+}
+
+#search-bar {
+  position: absolute;
+  left: 0;
+  background-color: var(--backgroundColor);
+  padding-left: 0.4rem;
+  padding-right: 0.4rem;
+  font-size: 1.6rem;
+  color: #59aedc;
+  width: 10rem;
+  height: 3rem;
+  border: 0.15rem solid var(--buttonPanelColor);
+  border-radius: 1.3rem;
+  margin-top: 2rem;
+  outline: none;
+}
+
+#search-bar::placeholder {
+  color: #5a616d;
 }
 
 #book-shelf {
@@ -74,26 +100,33 @@ button {
   height: 27rem;
 }
 
-@media (max-width:600px) {
+@media (max-width:700px) {
   body {
     width: 100vw;
   }
+
   .book {
-    width: 10rem;
-    height: 13rem;
+    margin: 0.3rem;
+    width: 12rem;
+    height: 15rem;
+  }
+
+  #search-bar {
+    left: auto;
+    right: 74%
   }
 }
 
-@media (max-width:370px) {
+@media (max-width:375px) {
   .book {
-    width: 9rem;
-    height: 12rem;
+    width: 11rem;
+    height: 14rem;
   }
 }
 
 @media (max-width:325px) {
   .book {
-    width: 8rem;
-    height: 11rem;
+    width: 10rem;
+    height: 13rem;
   }
 }
