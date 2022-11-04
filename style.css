@@ -24,13 +24,13 @@ body {
   align-items: center;
   justify-content: flex-start;
   height: 100vh;
-  width: clamp(1rem, 100vw, 89rem);
+  width: clamp(1rem, 100vw, 100rem);
 }
 
 header {
   display: flex;
   justify-content: center;
-  width: clamp(1rem, 100vw, 89rem);
+  width: clamp(1rem, 100vw, 100rem);
   margin-top: 4rem;
   margin-bottom: 4rem;
 }
@@ -43,10 +43,14 @@ header {
   font-size: clamp(0.1rem, 12vw, 5rem);
 }
 
+button {
+  cursor: pointer;
+}
+
 #button-panel {
   position: absolute;
   display: flex;
-  width: clamp(1rem, 70vw, 70rem);
+  width: clamp(1rem, 70vw, 80rem);
   justify-content: flex-end; 
   align-items: center;
   top: 8rem;
@@ -68,11 +72,11 @@ header {
   position: absolute;
   left: 0;
   background-color: var(--backgroundColor);
-  padding-left: 0.4rem;
-  padding-right: 0.4rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   font-size: 1.6rem;
   color: #59aedc;
-  width: 10rem;
+  width: 12rem;
   height: 3rem;
   border: 0.15rem solid var(--buttonPanelColor);
   border-radius: 1.3rem;
@@ -94,10 +98,78 @@ header {
 
 .book {
   margin: 1rem;
-  border: #4f5560 solid 1px;
+  border: #4f5560 solid 0.5px;
   border-radius: 1rem;
-  width: 20rem;
-  height: 27rem;
+  background-color: #30333b;
+  color: #acacb4;
+  width: 18rem;
+  height: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0.5rem;
+}
+
+.book img {
+  padding: 0.3rem;
+  height: 70%;
+  filter: brightness(75%);
+}
+
+.book h3 {
+  font-size: 1.3rem;
+  text-align: center;
+  max-height: 4.8rem;
+  font-weight: 400;
+}
+
+.book h6 {
+  font-size: 0.9rem;
+  text-align: center;
+  font-weight: 300;
+}
+
+.book-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  margin-bottom: 0.3rem;
+}
+
+.book-buttons button {
+  border: 0.1rem solid #767c86;
+  border-radius: 1.3rem;
+  background: none;
+  font-size: 1.2rem;
+  color: #767c86;
+  margin-left: 4.5rem;
+}
+.book-buttons button:nth-child(1) {
+  width: 7.3rem;
+  height: 2rem;
+}
+
+.book-buttons button:nth-child(2) {
+  margin-left: 2.7rem;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.05rem;
+  margin-top: 0.3rem;
+  padding-bottom: 0.15rem;
+}
+
+.book-buttons button:nth-child(2):hover {
+  background-color: var(--buttonPanelColor);
+  border-color: var(--buttonPanelColor);
+  color: var(--backgroundColor);
+}
+
+.book-buttons button:nth-child(1):focus {
+  background-color: #67b45c;
+  border-color: #67b45c;
+  color: var(--backgroundColor);
 }
 
 @media (max-width:700px) {
@@ -106,27 +178,89 @@ header {
   }
 
   .book {
-    margin: 0.3rem;
-    width: 12rem;
-    height: 15rem;
+    padding: 0.4rem;
+    margin: 0.7rem;
+    width: 11rem;
+    height: 17rem;
+  }
+
+  .book img {
+    padding: 0rem;
+    height: 60%;
+    margin-bottom: 0.2rem;
+  }
+
+  .book h3 {
+    font-size: 0.9rem;
+  }
+  
+  .book h6 {
+    font-size: 0.5rem;
+  }
+
+  .book-buttons {
+    margin-top: 0.4rem;
+    margin-bottom: 0rem;
+  }
+  
+  .book-buttons button {
+    border: 0.05rem solid #767c86;
+    border-radius: 1.3rem;
+    font-size: 0.7rem;
+    margin-left: 2rem;
+  }
+  .book-buttons button:nth-child(1) {
+    width: 5rem;
+    height: 1.3rem;
+  }
+  
+  .book-buttons button:nth-child(2) {
+    margin-left: 1rem;
+    border-radius: 50%;
+    width: 1.2rem;
+    height: 1.2rem;
+    font-size: 0.9rem;
+    margin-top: 0.1rem;
+    padding-bottom: 0.07rem;
   }
 
   #search-bar {
+    height: 2.3rem;
+    width: 10rem;
+    right: 75%;
     left: auto;
-    right: 74%
+    margin-top: 4.5rem;
+    font-size: 1.3rem;
+  }
+  
+  #add-button {
+    width: 3rem;
+    height: 3rem;
+    font-size: 2.3rem;
+    padding-bottom: 0.4rem;
   }
 }
 
 @media (max-width:375px) {
   .book {
     width: 11rem;
-    height: 14rem;
+    height: 17rem;
+    margin: 0.3rem;
+  }
+
+  #search-bar {
+    right: 70%;
+    margin-top: 2.3rem;
   }
 }
 
 @media (max-width:325px) {
   .book {
     width: 10rem;
-    height: 13rem;
+    margin: 0.2rem;
+  }
+
+  #search-bar {
+    margin-top: 1rem;
   }
 }
