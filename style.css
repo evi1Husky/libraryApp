@@ -4,8 +4,12 @@
 
 :root {
   --backgroundColor: #2a2e35;
+  --searchBarColor: #585d6b;
   --buttonPanelColor: #e07777;
-  --headerColor: -webkit-linear-gradient(0deg, #ff6363 0%, #57c4ff 100%);
+  --removeButtonColor: #e07777;
+  --readButtonColor: #67b45c;
+  --bookColor: #30333b;
+  --headerColor: -webkit-linear-gradient(0deg, #58e0ff 10%, #ff5f5f 90%);
 }
 
 html {
@@ -83,11 +87,11 @@ button {
   background-color: var(--backgroundColor);
   padding-left: 0.5rem;
   padding-right: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   color: #59aedc;
   width: 12rem;
-  height: 3rem;
-  border: 0.15rem solid var(--buttonPanelColor);
+  height: 2.5rem;
+  border: 0.15rem solid var(--searchBarColor);
   border-radius: 1.3rem;
   margin-top: 2rem;
   outline: none;
@@ -109,7 +113,7 @@ button {
   margin: 1rem;
   border: #4f5560 solid 0.5px;
   border-radius: 1rem;
-  background-color: #30333b;
+  background-color: var(--bookColor);
   color: #acacb4;
   width: 18rem;
   height: 28rem;
@@ -172,14 +176,14 @@ button {
 }
 
 .book-buttons button:nth-child(2):hover {
-  background-color: var(--buttonPanelColor);
-  border-color: var(--buttonPanelColor);
+  background-color: var(--removeButtonColor);
+  border-color: var(--removeButtonColor);
   color: var(--backgroundColor);
 }
 
 .book-buttons button:nth-child(1):focus {
-  background-color: #67b45c;
-  border-color: #67b45c;
+  background-color: var(--readButtonColor);
+  border-color: var(--readButtonColor);
   color: var(--backgroundColor);
 }
 
