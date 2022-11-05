@@ -41,6 +41,13 @@ header {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: clamp(0.1rem, 12vw, 5rem);
+  margin-right: 3.3rem;
+}
+
+#books-emoji {
+  font-size: clamp(0.1rem, 12vw, 4.5rem);
+  margin-top: 0.3rem;
+  margin-right: 1rem;
 }
 
 button {
@@ -153,7 +160,6 @@ button {
 }
 
 .book-buttons button:nth-child(2) {
-
   margin-left: 2.7rem;
   border-radius: 50%;
   border-width: 0.1rem;
@@ -243,6 +249,7 @@ button {
     width: 3rem;
     height: 3rem;
     font-size: 2.1rem;
+    margin-top: 1.5rem;
   }
 }
 
