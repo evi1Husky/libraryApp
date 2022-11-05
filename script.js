@@ -54,7 +54,7 @@ function updateBookIndexes() {
     console.log(book.index);
   });
 }
-
+ 
 // function updateReadButtonColor() {
 //   const readButtons = document.getElementsByClassName("read-button")
 //   Array.from(readButtons).forEach((button) => {
