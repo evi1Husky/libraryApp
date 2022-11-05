@@ -9,7 +9,7 @@
   --removeButtonColor: #e07777;
   --readButtonColor: #67b45c;
   --bookColor: #30333b;
-  --headerColor: -webkit-linear-gradient(0deg, #58e0ff 10%, #ff5f5f 90%);
+  --headerColor: -webkit-linear-gradient(0deg, #58e0ff 0%, #ff5f5f 100%);
 }
 
 html {
@@ -181,12 +181,17 @@ button {
   color: var(--backgroundColor);
 }
 
-.book-buttons button:nth-child(1):focus {
-  background-color: var(--readButtonColor);
-  border-color: var(--readButtonColor);
-  color: var(--backgroundColor);
-}
+/* .read-button {
+  background-color: #67b45c !important;
+  border-color: #67b45c !important;
+  color: #30333b !important;
+} */
 
+/* .read-button {
+  background-color: none !important;
+  border-color: #767c86 !important;
+  color: #767c86 !important;
+} */
 
 @media (max-width:700px) {
   body {
