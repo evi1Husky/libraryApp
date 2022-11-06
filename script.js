@@ -82,8 +82,8 @@ function updateReadButtonColor() {
   const readButtons = document.getElementsByClassName("read-button")
   Array.from(readButtons).forEach((button) => {
     if (button.innerHTML === "✓read") {
-      button.style.backgroundColor = "#67b45c";
-      button.style.borderColor = "#67b45c";
+      button.style.backgroundColor = "#57cce6";
+      button.style.borderColor = "#57cce6";
       button.style.color =  "#30333b";
     } else if (button.innerHTML === "not read") {
       button.style.backgroundColor = "none";

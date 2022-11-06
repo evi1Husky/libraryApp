@@ -5,8 +5,8 @@
 :root {
   --backgroundColor: #2a2e35;
   --searchBarColor: #585d6b;
-  --buttonPanelColor: #e07777;
-  --removeButtonColor: #e07777;
+  --buttonPanelColor: #ff8383;
+  --removeButtonColor: #ff8383;
   --readButtonColor: #67b45c;
   --bookColor: #30333b;
   --headerColor: -webkit-linear-gradient(0deg, #58e0ff 0%, #ff5f5f 100%);
@@ -81,7 +81,7 @@ button {
 }
 
 #add-button:hover {
-  background-color: #ff8484
+  background-color: #ff9090
 }
 
 #add-button:active {
@@ -95,17 +95,17 @@ button {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   font-size: 1.5rem;
-  color: #59aedc;
+  color: #767c86;
   width: 12rem;
   height: 2.5rem;
-  border: 0.15rem solid var(--searchBarColor);
+  border: 0.15rem solid #767c86;
   border-radius: 1.3rem;
   margin-top: 2rem;
   outline: none;
 }
 
 #search-bar::placeholder {
-  color: #5a616d;
+  color: #767c86;
 }
 
 #book-shelf {
@@ -121,15 +121,73 @@ button {
   margin-top: 13rem;
   margin-left: 38%;
   width: 35rem;
-  height: 45rem;
+  height: 32rem;
   z-index: 100;
   border: #4f5560 solid 0.5px;
-  background-color: #2a2e357b;
+  background-color: var(--bookColor);
   border-radius: 1rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   display: none;
   flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+#add-book-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100%;
+}
+
+#add-book-form h1 {
+  background: #acacb4;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 3rem;
+}
+
+#add-book-form button {
+  color: #24272c;
+  font-family: 'Dejavu Sans', sans-serif;
+  font-size: 1.6rem;
+  height: 3rem;
+  width: 7rem;
+  border-radius: 2rem;
+  border: none;
+  background: #57cce6;
+  cursor: pointer;
+}
+
+#add-book-form button:hover {
+  background: #77dcf2;
+}
+
+#add-book-form button:active {
+  background: #96e2f4;
+}
+
+#add-book-form input {
+  width: 20rem;
+  height: 2.3rem;
+  font-family: 'Dejavu Sans', sans-serif;
+  font-size: 1.6rem;
+  color: #acacb4;
+  font-weight:500;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 2rem;
+  border: none;
+  outline:none;
+  background-color: #4f535b;
+}
+
+#add-book-form input::placeholder {
+  text-align: center;
+  color: #acacb4;
+  font-size: 1.6rem;
 }
 
 .book {
@@ -262,7 +320,7 @@ button {
     width: 10rem;
     right: 75%;
     left: auto;
-    margin-top: 3rem;
+    margin-top: 4rem;
     font-size: 1.3rem;
   }
   
@@ -274,7 +332,7 @@ button {
   }
 
   #add-book-form {
-    margin-top: 14rem;
+    margin-top: 15rem;
     margin-left: 20%;
   }
 
@@ -282,10 +340,10 @@ button {
 
 @media (max-width: 420px) {
   #add-book-form {
-    width: 95vw;
-    margin-top: 13.3rem;
+    width: 98vw;
+    margin-top: 14rem;
     margin-left: 0rem;
-    height: 45rem;
+    height: 35rem;
   }
 }
 
@@ -298,7 +356,7 @@ button {
 
   #search-bar {
     right: 70%;
-    margin-top: 2.3rem;
+    margin-top: 3rem;
   }
 }
 
@@ -309,8 +367,13 @@ button {
   }
 
   #search-bar {
-    margin-top: 1rem;
+    margin-top: 1.3rem;
   }
+
+  #add-book-form {
+    margin-top: 13rem;
+  }
+
 }
 
 @supports (-webkit-backdrop-filter: blur(1px)) {

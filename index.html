@@ -10,6 +10,16 @@
 </head>
 <body>
   <div id="add-book-form">
+    <form id="form" action="/" method="post">
+      <h1>Add new book</h1>
+      <input class="input" type="text" id="book-cover-url" 
+        name="cover" placeholder="book cover url"/>
+      <input class="input" type="text" id="book-title" name="title"
+      placeholder="title"/>
+      <input class="input" type="text" id="authors-name" name="name"
+      placeholder="author"/>
+      <button type="submit">Add</button>
+    </form>
   </div>
   <header>
     <p id="books-emoji">📚</p><h1 id="header-title">Library</h1>
