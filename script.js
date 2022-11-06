@@ -1,19 +1,3 @@
-function Book(cover, title, author, read, index) {
-  this.cover = cover;
-  this.title = title;
-  this.author = author;
-  this.read = read;
-  this.index = index;
-}
-
-const book1 = new Book(
-  "https://teachyourselfcs.com/csapp.jpg",
-  "Computer Systems: A Programmer's Perspective",
-  "Randal Bryant",
-  "not read",
-  null
-  )
-
 let books = [
   {
     cover: "https://teachyourselfcs.com/csapp.jpg",
@@ -49,6 +33,55 @@ let books = [
     author: "William Kent",
     read: "not read",
     index: 4,
+  },
+  {
+    cover: "https://teachyourselfcs.com/skiena.jpg",
+    title: " The Algorithm Design Manual",
+    author: "Steven Skiena",
+    read: "not read",
+    index: 5,
+  },
+  {
+    cover: "https://teachyourselfcs.com/polya.jpg",
+    title: "How to Solve It",
+    author: "George Pólya",
+    read: "not read",
+    index: 6,
+  },
+  {
+    cover: "https://teachyourselfcs.com/dragon.jpg",
+    title: "Compilers: Principles, Techniques & Tools",
+    author: "Alfred V. Aho, Monica S. Lam, Ravi Sethi, Jeffrey D. Ullman",
+    read: "not read",
+    index: 7,
+  },
+  {
+    cover: "https://teachyourselfcs.com/ddia.jpg",
+    title: "Designing Data-Intensive Applications",
+    author: "Martin Kleppmann",
+    read: "not read",
+    index: 8,
+  },
+  {
+    cover: "https://teachyourselfcs.com/sicp.jpg",
+    title: "SICP",
+    author: "Harold Abelson, Gerald Jay Sussman, Julie Sussman",
+    read: "not read",
+    index: 9,
+  },
+  {
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1375771781i/12836498.jpg",
+    title: "Mathematics for Computer Science",
+    author: "Eric Lehman, F. Thomson Leighton, Albert R. Meyer",
+    read: "not read",
+    index: 10,
+  },
+  {
+    cover: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1627644403i/58661468.jpg",
+    title: "Crafting Interpreters",
+    author: "Robert Nystrom",
+    read: "not read",
+    index: 11,
   },
 ]
 
@@ -153,5 +186,18 @@ document.getElementById("add-button").addEventListener('click', ()=>{
     addBookMenu.style.display = 'none';
   }
 });
+
+document.getElementById("form").addEventListener('submit', addBookObject);
+
+function addBookObject(event) {
+    event.preventDefault();
+    const formInput = new FormData(event.target);
+    const bookObject = Object.fromEntries(formInput.entries());
+    bookObject.read = "not read";
+    bookObject.index = null;
+    books.unshift(bookObject);
+    updateBookShelf();
+    addBookMenu.style.display = 'none';
+}
 
 updateBookShelf();
