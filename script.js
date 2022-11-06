@@ -1,4 +1,4 @@
-const books = [
+let books = [
   {
     cover: "https://teachyourselfcs.com/csapp.jpg",
     title: "Computer Systems: A Programmer's Perspective",
@@ -36,14 +36,21 @@ const books = [
   },
 ]
 
+if ("library" in localStorage) {
+  books = JSON.parse(localStorage.getItem("library"));
+}
+
 const bookShelf = document.getElementById("book-shelf");
 
 function updateBookShelf() {
+  updateBookIndexes();
   bookShelf.innerHTML = '';
   books.forEach(book => {
     bookShelf.appendChild(renderBook(book.cover, book.title, book.author, book.read, book.index));
   });
-  // updateReadButtonColor();
+  updateBookIndexes();
+  updateReadButtonColor();
+  localStorage.setItem("library", JSON.stringify(books));
 }
 
 function updateBookIndexes() {
@@ -51,16 +58,23 @@ function updateBookIndexes() {
   books.forEach(book => {
     book.index = i;
     i += 1;
-    console.log(book.index);
   });
 }
- 
-// function updateReadButtonColor() {
-//   const readButtons = document.getElementsByClassName("read-button")
-//   Array.from(readButtons).forEach((button) => {
-//     console.log(button.innerHTML);
-// });
-// }
+
+function updateReadButtonColor() {
+  const readButtons = document.getElementsByClassName("read-button")
+  Array.from(readButtons).forEach((button) => {
+    if (button.innerHTML === "✓read") {
+      button.style.backgroundColor = "#67b45c";
+      button.style.borderColor = "#67b45c";
+      button.style.color =  "#30333b";
+    } else if (button.innerHTML === "not read") {
+      button.style.backgroundColor = "none";
+      button.style.borderColor = "#767c86";
+      button.style.color =  "#767c86";
+    }
+  });
+}
 
 function renderBook(cover, title, author, read, index) {
   const book = document.createElement("div");
@@ -94,7 +108,6 @@ function renderBook(cover, title, author, read, index) {
   removeButton.addEventListener("click", () => {
     if (confirm("Remove this book from your library?")) {
       books.splice(index, 1);
-      updateBookIndexes();
       updateBookShelf();
     } else {
       return;
@@ -102,10 +115,9 @@ function renderBook(cover, title, author, read, index) {
   });
 
   readButton.addEventListener("click", () => {
-    updateBookShelf();
     if (books[index].read === "not read") {
-      books[index].read = "read";
-    } else if (books[index].read === "read") {
+      books[index].read = "✓read";
+    } else if (books[index].read === "✓read") {
       books[index].read = "not read";
     }
     updateBookShelf();

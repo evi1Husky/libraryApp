@@ -141,6 +141,7 @@ button {
   font-size: 0.9rem;
   text-align: center;
   font-weight: 300;
+  color: #919198;
 }
 
 .book-buttons {
@@ -181,25 +182,13 @@ button {
   color: var(--backgroundColor);
 }
 
-/* .read-button {
-  background-color: #67b45c !important;
-  border-color: #67b45c !important;
-  color: #30333b !important;
-} */
-
-/* .read-button {
-  background-color: none !important;
-  border-color: #767c86 !important;
-  color: #767c86 !important;
-} */
-
 @media (max-width:700px) {
   body {
     width: 100vw;
   }
 
   .book {
-    padding: 0.4rem;
+    padding: 0.6rem;
     margin: 0.7rem;
     width: 11rem;
     height: 17rem;
@@ -294,5 +283,4 @@ button {
   .book-buttons button:nth-child(2) {
     padding-bottom: 0.1rem;
   }
-
 }
