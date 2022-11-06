@@ -133,6 +133,7 @@ function renderBook(cover, title, author, read, index) {
   const image = document.createElement("img");
   image.setAttribute("src", cover);
   book.appendChild(image);
+  reduceCoverSize(image, title.length, author.length);
 
   const bookTitle = document.createElement("h3");
   bookTitle.innerHTML = title;
@@ -174,6 +175,17 @@ function renderBook(cover, title, author, read, index) {
   });
 
   return book;
+}
+
+function reduceCoverSize(image, titleLength, authorLength) {
+  let imageHeight = 70;
+  if (authorLength > 40) {
+    imageHeight -= imageHeight * 10 / authorLength;
+  }
+  if (titleLength > 40) {
+    imageHeight -= imageHeight * 3 / titleLength;
+  }
+  image.style.height = `${imageHeight}%`
 }
 
 const addBookMenu = document.getElementById("add-book-form");
