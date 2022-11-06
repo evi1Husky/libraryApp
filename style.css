@@ -78,7 +78,14 @@ button {
   font-size: 2.2rem;
   line-height: 0;
   padding-bottom: 0.2rem;
-  
+}
+
+#add-button:hover {
+  background-color: #ff8484
+}
+
+#add-button:active {
+  background-color: rgb(255, 162, 162)
 }
 
 #search-bar {
@@ -107,6 +114,22 @@ button {
   flex-wrap: wrap;
   justify-content: center; 
   align-items: flex-start;
+}
+
+#add-book-form {
+  position: absolute;
+  margin-top: 13rem;
+  margin-left: 38%;
+  width: 35rem;
+  height: 45rem;
+  z-index: 100;
+  border: #4f5560 solid 0.5px;
+  background-color: #2a2e357b;
+  border-radius: 1rem;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  flex-direction: column;
 }
 
 .book {
@@ -239,7 +262,7 @@ button {
     width: 10rem;
     right: 75%;
     left: auto;
-    margin-top: 4.5rem;
+    margin-top: 3rem;
     font-size: 1.3rem;
   }
   
@@ -248,6 +271,21 @@ button {
     height: 3rem;
     font-size: 2.1rem;
     margin-top: 1.5rem;
+  }
+
+  #add-book-form {
+    margin-top: 14rem;
+    margin-left: 20%;
+  }
+
+}
+
+@media (max-width: 420px) {
+  #add-book-form {
+    width: 95vw;
+    margin-top: 13.3rem;
+    margin-left: 0rem;
+    height: 45rem;
   }
 }
 

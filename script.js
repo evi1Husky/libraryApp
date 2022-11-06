@@ -1,3 +1,19 @@
+function Book(cover, title, author, read, index) {
+  this.cover = cover;
+  this.title = title;
+  this.author = author;
+  this.read = read;
+  this.index = index;
+}
+
+const book1 = new Book(
+  "https://teachyourselfcs.com/csapp.jpg",
+  "Computer Systems: A Programmer's Perspective",
+  "Randal Bryant",
+  "not read",
+  null
+  )
+
 let books = [
   {
     cover: "https://teachyourselfcs.com/csapp.jpg",
@@ -46,7 +62,8 @@ function updateBookShelf() {
   updateBookIndexes();
   bookShelf.innerHTML = '';
   books.forEach(book => {
-    bookShelf.appendChild(renderBook(book.cover, book.title, book.author, book.read, book.index));
+    bookShelf.appendChild(renderBook(book.cover, book.title, book.author,
+      book.read, book.index));
   });
   updateBookIndexes();
   updateReadButtonColor();
@@ -125,5 +142,16 @@ function renderBook(cover, title, author, read, index) {
 
   return book;
 }
+
+const addBookMenu = document.getElementById("add-book-form");
+document.getElementById("add-button").addEventListener('click', ()=>{
+  const style = getComputedStyle(addBookMenu);
+  const display = style.display;
+  if (display === 'none') {
+    addBookMenu.style.display = 'flex';
+  } else {
+    addBookMenu.style.display = 'none';
+  }
+});
 
 updateBookShelf();
