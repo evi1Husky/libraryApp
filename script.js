@@ -272,61 +272,67 @@ document.getElementById("to-the-top-button").addEventListener("click", ()=>{
   properties for mathching objects, generate a list of
   links */
 
-let input = '';
-let searchTitleOrAuthor = "title"
+(() => {
+  let input = '';
+  let searchTitleOrAuthor = "author"
 
-const searchBar = document.getElementById('search-bar');
-const searchResultsContainer = 
-document.getElementById('search-results-container');
+  const searchBar = document.getElementById('search-bar');
+  const searchResultsContainer = 
+  document.getElementById('search-results-container');
 
-searchBar.addEventListener('input', (event) => {
-  searchResultsContainer.style.display = 'flex';
-  searchResultsContainer.innerHTML = '';
-  if(event.data === null) {
-    input = input.slice(0, -1); 
-  } else {
-    input += event.data;
-  }
-  let result = books.filter(book => {
-    if (searchTitleOrAuthor === "author") {
-      return book.author.toLowerCase().includes(input.toLowerCase());
-    } else {
-      return book.title.toLowerCase().includes(input.toLowerCase());
-    }
-  });
-  const length = result.length - 1;
-  buildSearchList(length, result);
-  if (input === '') {
+  searchBar.addEventListener('input', (event) => {
+    searchResultsContainer.style.display = 'flex';
     searchResultsContainer.innerHTML = '';
-    searchResultsContainer.style.display = 'none';
-  } else if (searchResultsContainer.innerHTML === '') {
-    searchResultsContainer.style.display = 'none';
-  }
-})
+    if(event.data === null) {
+      input = input.slice(0, -1); 
+    } else {
+      input += event.data;
+    }
+    let result = books.filter(book => {
+      if (searchTitleOrAuthor === "author") {
+        return book.author.toLowerCase().includes(input.toLowerCase());
+      } else {
+        return book.title.toLowerCase().includes(input.toLowerCase());
+      }
+    });
+    const length = result.length - 1;
+    buildSearchList(length, result);
+    if (input === '') {
+      searchResultsContainer.innerHTML = '';
+      searchResultsContainer.style.display = 'none';
+    } else if (searchResultsContainer.innerHTML === '') {
+      searchResultsContainer.style.display = 'none';
+    }
+  })
 
-function createLinks(index, result) {
-  const searchResultLink = document.createElement('a');
-  searchResultLink.classList.add('search-link');
-  searchResultLink.innerHTML = result[index].title;
-  searchResultLink.addEventListener('click', () => {
-    searchResultsContainer.style.display = 'none';
-    const id = searchResultLink.innerHTML.replace(/\s/g, '');
-    document.getElementById(id).scrollIntoView();
-    document.getElementById(id).focus();
-    input = "";
-    searchBar.value = "";
-    addBookMenu.style.display = 'none';
-  });
-  return searchResultLink;
-}
-
-function buildSearchList(length, result) {
-  if (length === -1) {
-    return;
-  } else {
-    searchResultsContainer.appendChild(createLinks(length, result));
-    return buildSearchList(length - 1, result);
+  function createLinks(index, result) {
+    const searchResultLink = document.createElement('a');
+    searchResultLink.classList.add('search-link');
+    if (searchTitleOrAuthor === "author") {
+      searchResultLink.innerHTML = `${result[index].author}: ${result[index].title}`;
+    } else {
+      searchResultLink.innerHTML = result[index].title;
+    }
+    searchResultLink.addEventListener('click', () => {
+      searchResultsContainer.style.display = 'none';
+      const id = result[index].title.replace(/\s/g, '');
+      document.getElementById(id).scrollIntoView();
+      document.getElementById(id).focus();
+      input = "";
+      searchBar.value = "";
+      addBookMenu.style.display = 'none';
+    });
+    return searchResultLink;
   }
-}
+
+  function buildSearchList(length, result) {
+    if (length === -1) {
+      return;
+    } else {
+      searchResultsContainer.appendChild(createLinks(length, result));
+      return buildSearchList(length - 1, result);
+    }
+  }
+})();
 
 updateBookShelf();

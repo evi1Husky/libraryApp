@@ -88,6 +88,20 @@ button {
   background-color: rgb(255, 162, 162)
 }
 
+#search-title-or-author {
+  position: absolute;
+  left: 0;
+  margin-bottom: 3rem;
+  margin-left: 0.3rem;
+  border: 0.1rem solid #767c86;
+  border-radius: 1.3rem;
+  background: none;
+  font-size: 1.2rem;
+  color: #767c86;
+  width: 5rem;
+  height: 1.7rem;
+}
+
 #search-bar {
   position: absolute;
   left: 0;
@@ -392,10 +406,18 @@ button {
   #search-bar {
     height: 2.3rem;
     width: 10rem;
-    right: 75%;
-    left: auto;
+    left: 0;
     margin-top: 4rem;
     font-size: 1.3rem;
+  }
+
+  #search-title-or-author {
+    left: 0;
+    margin-bottom: 0.5rem;
+    margin-left: 0.3rem;
+    font-size: 1.1rem;
+    width: 5rem;
+    height: 1.5rem;
   }
   
   #add-button {
@@ -469,6 +491,24 @@ button {
     right: auto;
     margin-top: 14rem;
   }
+
+  #search-bar {
+    height: 2.3rem;
+    width: 10rem;
+    left: 0;
+    margin-top: 4rem;
+    font-size: 1.3rem;
+    margin-left: -3rem;
+  }
+
+  #search-title-or-author {
+    left: 0;
+    margin-bottom: 0.5rem;
+    margin-left: -2.8rem;
+    font-size: 1.1rem;
+    width: 5rem;
+    height: 1.5rem;
+  }
 }
 
 @media (max-width:375px) {
@@ -479,8 +519,21 @@ button {
   }
 
   #search-bar {
-    right: 70%;
-    margin-top: 3rem;
+    height: 2.3rem;
+    width: 10rem;
+    left: 0;
+    margin-top: 4rem;
+    font-size: 1.3rem;
+    margin-left: -3.6rem;
+  }
+
+  #search-title-or-author {
+    left: 0;
+    margin-bottom: 0.5rem;
+    margin-left: -3.5rem;
+    font-size: 1.1rem;
+    width: 5rem;
+    height: 1.5rem;
   }
 }
 
@@ -496,6 +549,24 @@ button {
 
   #add-book-form {
     margin-top: 13rem;
+  }
+
+  #search-bar {
+    height: 2.3rem;
+    width: 10rem;
+    left: 0;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+    margin-left: -3.6rem;
+  }
+
+  #search-title-or-author {
+    left: 0;
+    margin-bottom: 1.3rem;
+    margin-left: -3.5rem;
+    font-size: 1rem;
+    width: 4rem;
+    height: 1.4rem;
   }
 
 }
