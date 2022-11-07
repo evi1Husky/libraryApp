@@ -121,7 +121,7 @@ button {
   margin-top: 13rem;
   margin-left: 38%;
   width: 35rem;
-  height: 32rem;
+  height: 31rem;
   z-index: 100;
   border: #4f5560 solid 0.5px;
   background-color: var(--bookColor);
@@ -129,14 +129,14 @@ button {
   display: none;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
 }
 
 #add-book-form form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   width: 100%;
   height: 100%;
 }
@@ -147,6 +147,7 @@ button {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   font-size: 3rem;
+  margin-bottom: 1.3rem;
 }
 
 #submit-button {
@@ -159,6 +160,7 @@ button {
   border: none;
   background: #57cce6;
   cursor: pointer;
+  margin-top: 2rem;
 }
 
 #submit-button:hover {
@@ -196,7 +198,7 @@ button {
 }
 
 #add-book-form input {
-  width: 20rem;
+  width: 21rem;
   height: 2.3rem;
   font-family: 'Dejavu Sans', sans-serif;
   font-size: 1.6rem;
@@ -208,12 +210,20 @@ button {
   border: none;
   outline:none;
   background-color: #4f535b;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #add-book-form input::placeholder {
   text-align: center;
   color: #acacb4;
   font-size: 1.6rem;
+}
+
+#sparkles {
+  font-size: 2.5rem;
+  margin-top: 1.7rem;
+  margin-bottom: 0.5rem;
 }
 
 .book {
@@ -292,6 +302,33 @@ button {
 .book-buttons button:nth-child(2):active {
   background-color: rgb(255, 162, 162);
   border-color: rgb(255, 162, 162);
+}
+
+#to-the-top-button {
+  position: sticky;
+  bottom: 5%;
+  margin-left: 90vw;
+  background: #4b4f55;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  width: 2rem;
+  height: 2rem;
+  border: none;
+  color: #86868d;
+  opacity: 80%;
+  transition: opacity 0.2s ease;
+}
+
+#to-the-top-button:hover {
+  background: #5f656c;
+  color: #9595a0;
+  opacity: 100%;
+}
+
+#to-the-top-button:active {
+  background: #6c727a;
+  color: #a3a3ae;
+  opacity: 100%;
 }
 
 @media (max-width:700px) {
@@ -374,7 +411,12 @@ button {
     width: 98vw;
     margin-top: 14rem;
     margin-left: 0rem;
-    height: 35rem;
+    height: 31rem;
+  }
+
+  #to-the-top-button {
+    bottom: 1%;
+    margin-left: 91vw;
   }
 }
 

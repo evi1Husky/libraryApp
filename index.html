@@ -12,13 +12,14 @@
   <div id="add-book-form">
     <button id="close-form-button">x</button>
     <form id="form">
+      <p id="sparkles">✨</p>
       <h1>Add new book</h1>
       <input class="input" type="text" id="book-cover-url" 
-        name="cover" placeholder="book cover url"/>
+        name="cover" placeholder="book cover url" required/>
       <input class="input" type="text" id="book-title" name="title"
-      placeholder="title"/>
+      placeholder="title" required/>
       <input class="input" type="text" id="authors-name" name="author"
-      placeholder="author"/>
+      placeholder="author" required/>
       <button id="submit-button" type="submit">Add</button>
     </form>
   </div>
@@ -32,6 +33,7 @@
   </div>
   <div id="book-shelf">
   </div>
+  <button id="to-the-top-button">⬆︎</button>
   <script src="script.js"></script>
 </body>
 </html>
