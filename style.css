@@ -241,6 +241,10 @@ button {
   padding: 0.5rem;
 }
 
+.book:focus {
+  border: #ff8383 solid 0.9px;
+}
+
 .book img {
   padding: 0.3rem;
   height: 70%;
@@ -408,6 +412,45 @@ button {
 
 }
 
+#search-results-container {
+  margin-top: 14rem;
+  z-index: 100;
+  position: absolute;
+  left: 12%;
+  width: 30rem;
+  height: auto;
+  background: #30333b8a;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: none;
+  flex-direction: column;
+  padding: 1.3rem;
+  border-radius: 1rem;
+  border: 0.5px solid #767c8681;
+  transition: 1s;
+}
+
+.search-link {
+  font-family: 'Dejavu Sans', sans-serif;
+  color: #acacb4;;
+  font-size: 1.6rem;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+  align-self: flex-start;
+  transition: 1s;
+  cursor: pointer;
+}
+
+.search-link:hover {
+  color: #57cce6;
+  transition: color 0s;
+}
+
+.search-link:active {
+  color: #96e2f4;
+  transition: color 0s;
+}
+
 @media (max-width: 420px) {
   #add-book-form {
     width: 98vw;
@@ -419,6 +462,12 @@ button {
   #to-the-top-button {
     bottom: 6%;
     margin-left: 91vw;
+  }
+  #search-results-container {
+    left: auto;
+    width: 98vw;
+    right: auto;
+    margin-top: 14rem;
   }
 }
 

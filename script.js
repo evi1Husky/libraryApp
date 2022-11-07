@@ -85,11 +85,16 @@ let books = [
   },
 ]
 
+// use local storage to save library content
+
 if ("library" in localStorage) {
   books = JSON.parse(localStorage.getItem("library"));
 }
 
 const bookShelf = document.getElementById("book-shelf");
+
+// run this function to update the book shelf based on data 
+// from the book object array
 
 function updateBookShelf() {
   updateBookIndexes();
@@ -102,6 +107,8 @@ function updateBookShelf() {
   updateReadButtonColor();
   localStorage.setItem("library", JSON.stringify(books));
 }
+
+// adjust book object index properties when a adding/removing books
 
 function updateBookIndexes() {
   let i = 0;
@@ -126,9 +133,13 @@ function updateReadButtonColor() {
   });
 }
 
+// render book objects from book array
+
 function renderBook(cover, title, author, read, index) {
   const book = document.createElement("div");
   book.classList.add("book");
+  book.id = title.replace(/\s/g, '');
+  book.setAttribute("tabindex", 0);
 
   const image = document.createElement("img");
   image.setAttribute("src", cover);
@@ -177,6 +188,8 @@ function renderBook(cover, title, author, read, index) {
   return book;
 }
 
+// adjust book cover size based on title/author's name string length
+
 function reduceCoverSize(image, titleLength, authorLength) {
   let imageHeight = 70;
   if (authorLength > 40) {
@@ -187,6 +200,8 @@ function reduceCoverSize(image, titleLength, authorLength) {
   }
   image.style.height = `${imageHeight}%`
 }
+
+// form input menu button
 
 const form = document.getElementById("form");
 
@@ -201,6 +216,8 @@ document.getElementById("add-button").addEventListener('click', ()=>{
     form.reset();
   }
 });
+
+// add book objects to the book array using FormData api
 
 form.addEventListener('submit', addBookObject);
 
@@ -220,6 +237,8 @@ document.getElementById("close-form-button").addEventListener("click", ()=>{
   addBookMenu.style.display = 'none';
   form.reset();
 });
+
+// to the top button, using intersection observer api
 
 document.getElementById("to-the-top-button").addEventListener("click", ()=>{
   const rootElement = document.documentElement;
@@ -244,5 +263,70 @@ document.getElementById("to-the-top-button").addEventListener("click", ()=>{
   const observer = new IntersectionObserver(callback);
   observer.observe(target);
 })();
+
+// search form
+
+/* search input form
+  take user input and put it into input variable, use array
+  .filter() and .includes() methods to search books array
+  properties for mathching objects, generate a list of
+  links */
+
+let input = '';
+let searchTitleOrAuthor = "title"
+
+const searchBar = document.getElementById('search-bar');
+const searchResultsContainer = 
+document.getElementById('search-results-container');
+
+searchBar.addEventListener('input', (event) => {
+  searchResultsContainer.style.display = 'flex';
+  searchResultsContainer.innerHTML = '';
+  if(event.data === null) {
+    input = input.slice(0, -1); 
+  } else {
+    input += event.data;
+  }
+  let result = books.filter(book => {
+    if (searchTitleOrAuthor === "author") {
+      return book.author.toLowerCase().includes(input.toLowerCase());
+    } else {
+      return book.title.toLowerCase().includes(input.toLowerCase());
+    }
+  });
+  const length = result.length - 1;
+  buildSearchList(length, result);
+  if (input === '') {
+    searchResultsContainer.innerHTML = '';
+    searchResultsContainer.style.display = 'none';
+  } else if (searchResultsContainer.innerHTML === '') {
+    searchResultsContainer.style.display = 'none';
+  }
+})
+
+function createLinks(index, result) {
+  const searchResultLink = document.createElement('a');
+  searchResultLink.classList.add('search-link');
+  searchResultLink.innerHTML = result[index].title;
+  searchResultLink.addEventListener('click', () => {
+    searchResultsContainer.style.display = 'none';
+    const id = searchResultLink.innerHTML.replace(/\s/g, '');
+    document.getElementById(id).scrollIntoView();
+    document.getElementById(id).focus();
+    input = "";
+    searchBar.value = "";
+    addBookMenu.style.display = 'none';
+  });
+  return searchResultLink;
+}
+
+function buildSearchList(length, result) {
+  if (length === -1) {
+    return;
+  } else {
+    searchResultsContainer.appendChild(createLinks(length, result));
+    return buildSearchList(length - 1, result);
+  }
+}
 
 updateBookShelf();
