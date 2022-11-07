@@ -180,13 +180,15 @@ function renderBook(cover, title, author, read, index) {
 function reduceCoverSize(image, titleLength, authorLength) {
   let imageHeight = 70;
   if (authorLength > 40) {
-    imageHeight -= imageHeight * 15 / authorLength;
+    imageHeight -= imageHeight * 10 / authorLength;
   }
   if (titleLength > 40) {
-    imageHeight -= imageHeight * 3 / titleLength;
+    imageHeight -= imageHeight * 5 / titleLength;
   }
   image.style.height = `${imageHeight}%`
 }
+
+const form = document.getElementById("form");
 
 const addBookMenu = document.getElementById("add-book-form");
 document.getElementById("add-button").addEventListener('click', ()=>{
@@ -196,10 +198,11 @@ document.getElementById("add-button").addEventListener('click', ()=>{
     addBookMenu.style.display = 'flex';
   } else {
     addBookMenu.style.display = 'none';
+    form.reset();
   }
 });
 
-document.getElementById("form").addEventListener('submit', addBookObject);
+form.addEventListener('submit', addBookObject);
 
 function addBookObject(event) {
     event.preventDefault();
@@ -209,7 +212,13 @@ function addBookObject(event) {
     bookObject.index = null;
     books.unshift(bookObject);
     updateBookShelf();
+    form.reset();
     addBookMenu.style.display = 'none';
 }
+
+document.getElementById("close-form-button").addEventListener("click", ()=>{
+  addBookMenu.style.display = 'none';
+  form.reset();
+});
 
 updateBookShelf();

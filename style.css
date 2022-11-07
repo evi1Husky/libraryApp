@@ -149,7 +149,7 @@ button {
   font-size: 3rem;
 }
 
-#add-book-form button {
+#submit-button {
   color: #24272c;
   font-family: 'Dejavu Sans', sans-serif;
   font-size: 1.6rem;
@@ -161,12 +161,38 @@ button {
   cursor: pointer;
 }
 
-#add-book-form button:hover {
+#submit-button:hover {
   background: #77dcf2;
 }
 
-#add-book-form button:active {
+#submit-button:active {
   background: #96e2f4;
+}
+
+#close-form-button {
+  border: 0.1rem solid #767c86;
+  border-radius: 50%;
+  background: none;
+  font-size: 1.2rem;
+  color: #767c86;
+  right: 5%;
+  top: 5%;
+  width: 1.9rem;
+  height: 1.9rem;
+  position: absolute;
+  line-height: 0;
+  padding-bottom: 0.1rem;
+}
+
+#close-form-button:hover {
+  background-color: var(--removeButtonColor);
+  border-color: var(--removeButtonColor);
+  color: var(--backgroundColor);
+}
+
+#close-form-button:active {
+  background-color: rgb(255, 162, 162);
+  border-color: rgb(255, 162, 162);
 }
 
 #add-book-form input {
@@ -261,6 +287,11 @@ button {
   background-color: var(--removeButtonColor);
   border-color: var(--removeButtonColor);
   color: var(--backgroundColor);
+}
+
+.book-buttons button:nth-child(2):active {
+  background-color: rgb(255, 162, 162);
+  border-color: rgb(255, 162, 162);
 }
 
 @media (max-width:700px) {
