@@ -309,14 +309,16 @@ button {
   bottom: 5%;
   margin-left: 90vw;
   background: #4b4f55;
-  border-radius: 50%;
-  font-size: 1.3rem;
+  border-radius: 0.6rem;
+  font-size: 1.2rem;
   width: 2rem;
   height: 2rem;
   border: none;
   color: #86868d;
-  opacity: 80%;
+  opacity: 70%;
   transition: opacity 0.2s ease;
+  text-align: center;
+  cursor: pointer;
 }
 
 #to-the-top-button:hover {
@@ -415,7 +417,7 @@ button {
   }
 
   #to-the-top-button {
-    bottom: 1%;
+    bottom: 5%;
     margin-left: 91vw;
   }
 }
