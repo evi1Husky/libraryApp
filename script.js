@@ -137,6 +137,9 @@ function updateReadButtonColor() {
 
 // render book objects from book array
 
+/* <button id="move-left-button">&#8226</button>
+<button id="move-right-button">&#8226</button> */
+
 function renderBook(cover, title, author, read, index) {
   const book = document.createElement("div");
   book.classList.add("book");
@@ -168,6 +171,15 @@ function renderBook(cover, title, author, read, index) {
   const removeButton = document.createElement("button");
   removeButton.innerHTML = "x";
   buttons.appendChild(removeButton);
+
+  const moveLeftButton = document.createElement("button");
+  const moveRightButton = document.createElement("button");
+  moveLeftButton.innerHTML = "&#8226";
+  moveRightButton.innerHTML = "&#8226";
+  moveLeftButton.classList.add("move-left-button");
+  moveRightButton.classList.add("move-right-button");
+  book.appendChild(moveLeftButton);
+  book.appendChild(moveRightButton);
 
   removeButton.addEventListener("click", () => {
     if (confirm("Remove this book from your library?")) {

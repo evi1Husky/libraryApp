@@ -385,6 +385,25 @@ button {
   color: var(--buttonPanelColor);
 }
 
+.move-left-button, .move-right-button {
+  background: none;
+  border: none;
+  color: #575b63;
+  font-size: 1.7rem;
+  line-height: 0;
+  width: 0;
+  padding: 0;
+  position: absolute;
+}
+
+.move-left-button {
+  margin-right: 17.3rem;
+}
+
+.move-right-button {
+  margin-left: 16rem;
+}
+
 @media (max-width: 930px) {
   #stats {
     margin-right: 3rem;
@@ -505,6 +524,19 @@ button {
     margin-top: 15rem;
     margin-left: 20%;
   }
+
+  .move-left-button {
+    margin-right: 10.5rem;
+  }
+  
+  .move-right-button {
+    margin-left: 9.5rem;
+  }
+
+  .move-left-button, .move-right-button {
+    font-size: 1.3rem;
+  }
+
 }
 
 #search-results-container {
@@ -671,6 +703,18 @@ button {
 
   #stats {
     margin-right: 2.7rem;
+  }
+
+  .move-left-button {
+    margin-right: 9.8rem;
+  }
+  
+  .move-right-button {
+    margin-left: 9.3rem;
+  }
+
+  .move-left-button, .move-right-button {
+    font-size: 0.7rem;
   }
 }
 
