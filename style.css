@@ -3,7 +3,7 @@
 *::after {margin: 0; padding: 0; box-sizing: inherit;}
 
 :root {
-  --backgroundColor: #2a2e35;
+  --backgroundColor: #282c32;
   --searchBarColor: #585d6b;
   --buttonPanelColor: #ff8383;
   --removeButtonColor: #ff8383;
@@ -93,13 +93,20 @@ button {
   left: 0;
   margin-bottom: 3rem;
   margin-left: 0.3rem;
-  border: 0.1rem solid #767c86;
-  border-radius: 1.3rem;
-  background: none;
   font-size: 1.2rem;
   color: #767c86;
-  width: 5rem;
-  height: 1.7rem;
+  cursor: pointer;
+  transition: color 1s;
+}
+
+#search-title-or-author:hover {
+  color: #ff9090;
+  transition: color 0s;
+}
+
+#search-title-or-author:active {
+  color: rgb(255, 162, 162);
+  transition: color 0s;
 }
 
 #search-bar {
@@ -351,6 +358,16 @@ button {
   opacity: 100%;
 }
 
+#stats {
+  color: #acacb4;
+  margin-right: 4rem;
+  font-size: 1.5rem;
+  padding: 0.7rem;
+  border: #4f5560 solid 0.5px;
+  border-radius: 1rem;
+  background-color: var(--bookColor);
+}
+
 @media (max-width:700px) {
   body {
     width: 100vw;
@@ -416,8 +433,6 @@ button {
     margin-bottom: 0.5rem;
     margin-left: 0.3rem;
     font-size: 1.1rem;
-    width: 5rem;
-    height: 1.5rem;
   }
   
   #add-button {
@@ -496,18 +511,16 @@ button {
     height: 2.3rem;
     width: 10rem;
     left: 0;
-    margin-top: 4rem;
+    margin-top: 4.5rem;
     font-size: 1.3rem;
     margin-left: -3rem;
   }
 
   #search-title-or-author {
     left: 0;
-    margin-bottom: 0.5rem;
+    margin-bottom: -0.5rem;
     margin-left: -2.8rem;
     font-size: 1.1rem;
-    width: 5rem;
-    height: 1.5rem;
   }
 }
 
@@ -522,18 +535,16 @@ button {
     height: 2.3rem;
     width: 10rem;
     left: 0;
-    margin-top: 4rem;
+    margin-top: 4.4rem;
     font-size: 1.3rem;
     margin-left: -3.6rem;
   }
 
   #search-title-or-author {
     left: 0;
-    margin-bottom: 0.5rem;
-    margin-left: -3.5rem;
+    margin-bottom: -0.2rem;
+    margin-left: -3.3rem;
     font-size: 1.1rem;
-    width: 5rem;
-    height: 1.5rem;
   }
 }
 
@@ -555,18 +566,16 @@ button {
     height: 2.3rem;
     width: 10rem;
     left: 0;
-    margin-top: 3rem;
+    margin-top: 3.3rem;
     font-size: 1.3rem;
     margin-left: -3.6rem;
   }
 
   #search-title-or-author {
     left: 0;
-    margin-bottom: 1.3rem;
-    margin-left: -3.5rem;
+    margin-bottom: 0.5rem;
+    margin-left: -3.3rem;
     font-size: 1rem;
-    width: 4rem;
-    height: 1.4rem;
   }
 
 }

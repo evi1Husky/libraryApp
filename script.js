@@ -274,7 +274,19 @@ document.getElementById("to-the-top-button").addEventListener("click", ()=>{
 
 (() => {
   let input = '';
-  let searchTitleOrAuthor = "author"
+  let searchTitleOrAuthor = "title"
+
+  const searchTitleOrAuthorButton = 
+    document.getElementById("search-title-or-author");
+  searchTitleOrAuthorButton.addEventListener("click", () => {
+    if (searchTitleOrAuthorButton.innerHTML === "search by title") {
+      searchTitleOrAuthorButton.innerHTML = "search by author";
+      searchTitleOrAuthor = "author";
+    } else {
+      searchTitleOrAuthorButton.innerHTML = "search by title";
+      searchTitleOrAuthor = "title";
+    }
+  })
 
   const searchBar = document.getElementById('search-bar');
   const searchResultsContainer = 
