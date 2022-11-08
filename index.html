@@ -5,6 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="library app">
+  <meta name='mobile-web-app-capable' content='yes'/>
+  <meta name='apple-mobile-web-app-capable' content='yes'/>
+  <meta name="theme-color" content="#282c32"/>
+  <title>blog</title>
   <link rel="stylesheet" type="text/css" href="style.css"/>
   <title>library</title>
 </head>
@@ -31,8 +35,8 @@
   </header>
   <div id="button-panel">
     <div id="stats">
-      <p>20 books in library</p>
-      <p>10 books read</p>
+      <p id="books-in-library-stats">20 books in library</p>
+      <p id="books-read-stats">10 books read</p>
     </div>
     <button id="add-button">+</button>
     <a id="search-title-or-author">search by title</a>
