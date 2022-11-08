@@ -137,9 +137,6 @@ function updateReadButtonColor() {
 
 // render book objects from book array
 
-/* <button id="move-left-button">&#8226</button>
-<button id="move-right-button">&#8226</button> */
-
 function renderBook(cover, title, author, read, index) {
   const book = document.createElement("div");
   book.classList.add("book");
@@ -184,15 +181,31 @@ function renderBook(cover, title, author, read, index) {
   moveLeftButton.addEventListener("click", () => {
     const book = books.slice(index, index + 1)[0];
     books.splice(index, 1);
-    books.splice(index - 1, 0, book);
     updateBookShelf();
+    if (index === 0) {
+      books.splice(books.length, 0, book);
+      updateBookShelf();
+    } else {
+      books.splice(index - 1, 0, book);
+      updateBookShelf();
+      const id = books[index - 1].title.replace(/\s/g, '');
+      document.getElementById(id).focus();
+    }
   });
 
   moveRightButton.addEventListener("click", () => {
     const book = books.slice(index, index + 1)[0];
     books.splice(index, 1);
-    books.splice(index + 1, 0, book);
     updateBookShelf();
+    if (index === books.length) {
+      books.splice(0, 0, book);
+      updateBookShelf();
+    } else {
+      books.splice(index + 1, 0, book);
+      updateBookShelf();
+      const id = books[index + 1].title.replace(/\s/g, '');
+      document.getElementById(id).focus();
+    }
   });
 
   removeButton.addEventListener("click", () => {
@@ -389,8 +402,16 @@ function updateStats() {
       read += 1;
     }
   });
-  booksInLibrary.innerHTML = `${inLibrary} books in library`;
-  booksRead.innerHTML = `${read} books read`;
+  if (inLibrary === 1) {
+    booksInLibrary.innerHTML = `${inLibrary} book in library`;
+  } else {
+    booksInLibrary.innerHTML = `${inLibrary} books in library`;
+  };
+  if (read === 1) {
+    booksRead.innerHTML = `${read} book read`;
+  } else {
+    booksRead.innerHTML = `${read} books read`;
+  }
 }
 
 // Display a message when library is empty
