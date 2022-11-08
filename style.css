@@ -81,11 +81,11 @@ button {
 }
 
 #add-button:hover {
-  background-color: #ff9090
+  background-color: #ff9090;
 }
 
 #add-button:active {
-  background-color: rgb(255, 162, 162)
+  background-color: rgb(255, 162, 162);
 }
 
 #search-title-or-author {
@@ -368,6 +368,23 @@ button {
   background-color: var(--bookColor);
 }
 
+#empty-page-message {
+  font-size: clamp(0.1rem, 6vw, 2.5rem);
+  color: #acacb4;
+  top: 37vh;
+  position: absolute;
+  padding: 2rem;
+  width: 60rem;
+  text-align: center;
+  border: #4f5560 solid 0.5px;
+  border-radius: 1rem;
+  background-color: var(--bookColor);
+}
+
+#empty-page-message span {
+  color: var(--buttonPanelColor);
+}
+
 @media (max-width: 930px) {
   #stats {
     margin-right: 3rem;
@@ -395,6 +412,11 @@ button {
 @media (max-width: 700px) {
   body {
     width: 100vw;
+  }
+
+  #empty-page-message {
+    width: 89vw;
+    padding: 1rem;
   }
 
   #stats {

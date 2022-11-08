@@ -105,6 +105,8 @@ function updateBookShelf() {
   });
   updateBookIndexes();
   updateReadButtonColor();
+  updateStats();
+  displayMessageIfEmpty();
   localStorage.setItem("library", JSON.stringify(books));
 }
 
@@ -346,5 +348,31 @@ document.getElementById("to-the-top-button").addEventListener("click", ()=>{
     }
   }
 })();
+
+// Update stats
+
+const booksInLibrary = document.getElementById("books-in-library-stats")
+const booksRead = document.getElementById("books-read-stats");
+
+function updateStats() {
+  let inLibrary = 0;
+  let read = 0;
+  books.forEach(book => {
+    inLibrary += 1;
+    if (book.read === "✓read") {
+      read += 1;
+    }
+  });
+  booksInLibrary.innerHTML = `${inLibrary} books in library`;
+  booksRead.innerHTML = `${read} books read`;
+}
+
+// Display a message when library is empty
+
+function displayMessageIfEmpty() {
+  if (books.length === 0) {
+    bookShelf.innerHTML = `<p id="empty-page-message">There's nothing in here, press <span>the plus button</span> to add a book to your library.</p>`
+  }
+}
 
 updateBookShelf();
