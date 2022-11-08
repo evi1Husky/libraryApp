@@ -392,7 +392,7 @@ button {
   font-size: 1.7rem;
   padding: 0;
   position: absolute;
-
+  transition: color 1s;
 }
 
 .move-left-button {
@@ -401,6 +401,16 @@ button {
 
 .move-right-button {
   margin-left: 16.6rem;
+}
+
+.move-right-button:hover, .move-left-button:hover {
+  color: #ff9090;
+  transition: color 0s;
+}
+
+.move-right-button:active, .move-left-button:active {
+  color: rgb(255, 162, 162);
+  transition: color 0s;
 }
 
 @media (max-width: 930px) {

@@ -181,6 +181,20 @@ function renderBook(cover, title, author, read, index) {
   book.appendChild(moveLeftButton);
   book.appendChild(moveRightButton);
 
+  moveLeftButton.addEventListener("click", () => {
+    const book = books.slice(index, index + 1)[0];
+    books.splice(index, 1);
+    books.splice(index - 1, 0, book);
+    updateBookShelf();
+  });
+
+  moveRightButton.addEventListener("click", () => {
+    const book = books.slice(index, index + 1)[0];
+    books.splice(index, 1);
+    books.splice(index + 1, 0, book);
+    updateBookShelf();
+  });
+
   removeButton.addEventListener("click", () => {
     if (confirm("Remove this book from your library?")) {
       books.splice(index, 1);
