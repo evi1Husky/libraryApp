@@ -390,18 +390,17 @@ button {
   border: none;
   color: #575b63;
   font-size: 1.7rem;
-  line-height: 0;
-  width: 0;
   padding: 0;
   position: absolute;
+
 }
 
 .move-left-button {
-  margin-right: 17.3rem;
+  margin-right: 16.6rem;
 }
 
 .move-right-button {
-  margin-left: 16rem;
+  margin-left: 16.6rem;
 }
 
 @media (max-width: 930px) {
@@ -526,11 +525,11 @@ button {
   }
 
   .move-left-button {
-    margin-right: 10.5rem;
+    margin-right: 10.1rem;
   }
   
   .move-right-button {
-    margin-left: 9.5rem;
+    margin-left: 10.1rem;
   }
 
   .move-left-button, .move-right-button {
@@ -706,11 +705,11 @@ button {
   }
 
   .move-left-button {
-    margin-right: 9.8rem;
+    margin-right: 9.5rem;
   }
   
   .move-right-button {
-    margin-left: 9.3rem;
+    margin-left: 9.5rem;
   }
 
   .move-left-button, .move-right-button {
